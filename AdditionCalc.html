@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>new practice</title>
+
+
+    <style>
+        body {
+            height: 100vh;
+            width: 100%;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        form {
+            height: 100vh;
+            width: 100%;
+        }
+
+        .card {
+            height: 400px;
+            width: 500px;
+            background-color: black;
+            color: white;
+            text-transform: uppercase;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border-radius: 20px;
+        }
+
+        .container {
+            height: auto;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .fir {
+            display: block;
+            margin: 20px;
+        }
+
+        input {
+            border-radius: 5px;
+            height: 30px;
+            width: 150px;
+            box-sizing: border-box;
+            margin-left: 20px;
+            border: none;
+            outline: none;
+            text-align: center;
+        }
+
+        .sec {
+            margin: 20px;
+        }
+
+        button {
+            margin: 20px;
+            padding: 5px 40px;
+            border-radius: 20px;
+            text-decoration: none;
+            background-color: #ffa500;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 600;
+            text-align: center;
+        }
+
+
+        button:hover {
+            background-color: #ffc500;
+            transition: all .2s;
+        }
+
+        /* #result{ 
+            height: 50px;
+            width: 100px;
+            background-color: #fefefe;
+            color: black;
+            font-size: small;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            border-radius: 5px;
+        }*/
+
+        #result {
+            font-weight: 600;
+            margin-top: 30px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <form id="addition">
+        <h1 style="font-family: Arial;">Addition</h1>
+        <div class="container">
+            <div class="card">
+                <div class="fir">
+                    <label for="First Number" style="margin-right: 20px;">First Number:</label>
+                    <input id="First" placeholder="Enter The Number">
+                </div>
+                <div class="sec">
+                    <label for="Second Number">Second Number:</label>
+                    <input id="Second" placeholder="Enter The Number">
+                </div>
+                <button type="button" id="click" onclick="addnumber()">Add</button>
+                <div id="result"></div>
+            </div>
+        </div>
+    </form>
+
+    <p id="add2"></p>
+
+</body>
+<script>
+    function addnumber() {
+
+        var First = parseFloat(document.getElementById("First").value);
+        var Second = parseFloat(document.getElementById("Second").value);
+
+        if (isNaN(First) || isNaN(Second)) {
+            document.getElementById("result").innerHTML = "Please enter valid numbers.";
+        } else {
+            var sum = First + Second;
+
+            document.getElementById("result").innerHTML = "Result: " + sum;
+        }
+    }
+
+    var input = document.getElementById("First");
+    var input = document.getElementById("Second");
+
+    input.addEventListener("keypress", function(event){
+        if(event.key === "Enter"){
+            event.preventDefault();
+            document.getElementById("click").click();
+        }
+    })
+</script>
+
+</html>
